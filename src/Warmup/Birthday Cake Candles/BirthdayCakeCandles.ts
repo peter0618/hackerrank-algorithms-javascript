@@ -1,14 +1,12 @@
 export function birthdayCakeCandles(candles: number[]): number {
   // Write your code here
-  let max = candles[0];
-  let countMax = 1;
-  for (let i = 1; i < candles.length; i++) {
-    if (max < candles[i]) {
-      max = candles[i];
-      countMax = 1;
-    } else if (max == candles[i]) {
-      countMax++;
+  candles.sort((a: number, b: number) => b-a);
+  const maxHeight = candles[0];
+  let count = 0;
+  candles.forEach((candle: number) => {
+    if (maxHeight === candle) {
+      count++;
     }
-  }
-  return countMax;
+  });
+  return count;
 }
