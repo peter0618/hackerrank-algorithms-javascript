@@ -1,12 +1,15 @@
 export function compareTriplets(a: number[], b: number[]): number[] {
   // Write your code here
-  const result = [0, 0];
-  for (let i = 0; i < 3; i++) {
-    if (a[i] > b[i]) {
-      result[0]++;
-    } else if (a[i] < b[i]) {
-      result[1]++;
-    }
-  }
-  return result;
+  let aWonCount = 0;
+  let bWonCount = 0;
+  
+  a.forEach((_a: number, index: number) => {
+      if( _a > b[index]) {
+          aWonCount+=1;
+      } else if ( _a < b[index]){
+          bWonCount+=1;
+      }
+  })
+
+  return [aWonCount, bWonCount];
 }
